@@ -1,8 +1,12 @@
 $(document).ready(function () {
-    $("#heading").click(function () {
-        $("h1").hide();
-    });
-    $("#headinger").click(function () {
-        $("h1").hide();
+    $.ajax({
+        url: 'php/installDB.php',
+        type: 'GET',
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr.responseText);
+        }
     });
 });
