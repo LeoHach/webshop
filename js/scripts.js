@@ -1,9 +1,12 @@
-var script = document.createElement('script');
-script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-script.onload = function () {
-    $(document).ready(function () {
-
+$(document).ready(function () {
+    $.ajax({
+        url: 'php/installDB.php',
+        type: 'GET',
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr.responseText);
+        }
     });
-}
-
-document.head.appendChild(script);
+});
