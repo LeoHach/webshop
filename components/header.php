@@ -3,9 +3,9 @@
 
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/scripts.js"></script>
     <script src="../js/register.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -52,12 +52,11 @@
             </div>
         </div>
     </div>
-
     <form id="login_form" action="" method="post">
         <h2 class="dropdown_text" id="login_header">Anmelden</h2>
-        <label for="username_email" class="dropdown_text" id="login_email_username">E-Mail / Benutzername:</label>
+        <label for="username_email" class="dropdown_text">E-Mail / Benutzername:</label>
         <input type="email" class="dropdown_input" id="login_username_email" name="username_email" required />
-        <label for="password" class="dropdown_text" id="login_password">Passwort:</label>
+        <label for="password" class="dropdown_text">Passwort:</label>
         <input type="password" class="dropdown_input" id="login_password" name="password" required />
         <div id="login_buttons">
             <button class="dropdown_buttons" id="login_register">Registrieren</button>
@@ -66,20 +65,19 @@
     </form>
     <form id="register_form" action="" method="post">
         <h2 class="dropdown_text" id="login_header">Registrieren</h2>
-        <label for="username" class="dropdown_text" id="register_username">Benutzername:</label>
+        <label for="username" class="dropdown_text">Benutzername:</label>
         <input type="text" class="dropdown_input" id="register_username" name="username" required />
-        <label for="email" class="dropdown_text" id="register_email">E-Mail:</label>
+        <label for="email" class="dropdown_text">E-Mail:</label>
         <input type="email" class="dropdown_input" id="register_email" name="email" required />
-        <label for="password" class="dropdown_text" id="register_password">Passwort:</label>
+        <label for="password" class="dropdown_text">Passwort:</label>
         <input type="password" class="dropdown_input" id="register_password" name="password" required />
-        <label for="password_repeat" class="dropdown_text" id="register_password_repeat">Passwort wiederholen:</label>
+        <label for="password_repeat" class="dropdown_text">Passwort wiederholen:</label>
         <input type="password" class="dropdown_input" id="register_password_repeat" name="password_repeat" required />
         <div id="register_buttons">
             <button class="dropdown_buttons" id="register_login">Anmelden</button>
             <input type="submit" class="dropdown_buttons" id="register_register" value="Registrieren" />
         </div>
     </form>
-
 </body>
 
 </html>

@@ -19,23 +19,36 @@ $(document).ready(function () {
         }
     );
 
+    var loginFormOpen = false;
+    var registerFormOpen = false;
+
     $('#header_user').on('click', function () {
-        $("#login_form").slideDown();
-        $('#login_form').css('display', 'flex')
+        if (loginFormOpen == false && registerFormOpen == false) {
+            $("#login_form").slideDown();
+            $('#login_form').css('display', 'flex')
+            loginFormOpen = true;
+        } else if (loginFormOpen == true || registerFormOpen == true) {
+            $("#register_form").slideUp();
+            registerFormOpen = false;
+            $("#login_form").slideUp();
+            loginFormOpen = false;
+        }
     });
 
     $('#login_register').click(function () {
-        //$('#login_form').html($('#register_form').html());
         $('#login_form').hide();
         $('#register_form').show();
         $('#register_form').css('display', 'flex')
+        registerFormOpen = true;
+        loginFormOpen = false;
     });
 
     $("#register_login").click(function () {
-        //$('#register_form').html($('#login_form').html());
-        $('#login_form').show();
         $('#register_form').hide();
+        $('#login_form').show();
         $('#login_form').css('display', 'flex')
+        loginFormOpen = true;
+        registerFormOpen = false;
 
     });
 

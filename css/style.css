@@ -225,6 +225,11 @@ body {
         width: 32px;
         height: 32px;
     }
+
+    .middle_square {
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 1024px) {
