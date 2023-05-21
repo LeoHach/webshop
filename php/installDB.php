@@ -48,8 +48,19 @@ if (mysqli_query($conn, $create_users_table_query)) {
     echo "Error creating table 'users': " . mysqli_error($conn);
 }
 
-// Erstelle den Admin Benutzer 
+// Prüfe ob ein Admin Account bereits existiert, wenn nicht wird einer erstellt
+$admin_created_query = "SELECT User_ID FROM users WHERE Role = 'admin'";
+$result = mysqli_query($conn, $admin_created_query);
+if (mysqli_num_rows($result) == 0) {
+    // Erstelle den Admin Benutzer 
+    $create_admin = "INSERT INTO users (Customer_ID, Username, Email, Password, Role,Picture) VALUES (0,'admin', 'admin@gmail.com', '12345678', 'admin' ,'hurfuehgre')";
 
+    if (mysqli_query($conn, $create_admin)) {
+        echo "admin created successfully";
+    } else {
+        echo "Error creating admin: " . mysqli_error($conn);
+    }
+}
 
 // Die Verbindung zur MySQL Datenbank wird geschlossen
 mysqli_close($conn);
