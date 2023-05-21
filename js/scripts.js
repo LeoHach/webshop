@@ -52,7 +52,19 @@ $(document).ready(function () {
 
     });
 
-    $('.dropdown_buttons').hover(
+
+    $('#icon').hover(
+        function () {
+            $(this).css('transition', 'background-color 0.5s ease').css('background-color', '#253237');
+            $(this).css('transition', 'color 0.5s ease').css('color', '#ffffff');
+        },
+        function () {
+            $(this).css('transition', 'background-color 0.5s ease').css('background-color', '#9db4c0');
+            $(this).css('transition', 'color 0.5s ease').css('color', '#ffffff');
+        }
+    );
+
+    $('.drowdown_buttons').hover(
         function () {
             $(this).css('transition', 'background-color 0.5s ease').css('background-color', '#253237');
             $(this).css('transition', 'color 0.5s ease').css('color', '#ffffff');

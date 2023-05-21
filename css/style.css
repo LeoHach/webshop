@@ -14,6 +14,7 @@
     }
 }
 
+
 a {
     text-decoration: none;
 }
@@ -66,6 +67,25 @@ body {
     background-color: var(--blue-100);
     color: var(--grey-100);
 }
+
+#icon {
+    border: none;
+    background-color: var(--blue-150);
+    color: var(--white);
+    font-size: 7px;
+    height: 15px;
+    width: 50px;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.add_in_cart
+{
+    height: 15px;
+    width: 30px;
+    margin-left: 60px;
+    background-color: var(--blue-150);
+} 
 
 .middle_square {
     background-color: var(--grey-50);
@@ -154,6 +174,7 @@ body {
 #header_user {
     width: 32px;
     height: 32px;
+    background-color: #9db4c0;
 }
 
 #header_cart {
@@ -161,11 +182,13 @@ body {
     height: 32px;
     margin-left: 20px;
     margin-right: 20px;
+    background-color: #9db4c0;
 }
 
 #header_admin {
     width: 32px;
     height: 32px;
+    background-color: #9db4c0;
 }
 
 #header_search {
