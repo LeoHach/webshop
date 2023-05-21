@@ -46,12 +46,21 @@ body {
     border-radius: 7px;
     border: none;
     outline: none;
-    background-color: var(--blue-100);
-    color: var(--grey-100);
-    margin: 10px;
+    background-color: var(--grey-50);
+    color: var(--white);
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
     height: 25px;
     padding-left: 5px;
     width: 89%;
+    transition: background-color 0.5s ease;
+}
+
+.dropdown_input:focus {
+    background-color: var(--blue-100);
+    color: var(--grey-100);
 }
 
 .dropdown_buttons {
@@ -91,6 +100,134 @@ body {
     background-color: var(--grey-50);
     height: 100%;
     width: 75%;
+}
+
+.response_text {
+    color: var(--grey-100);
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.header_text {
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user_content_wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.user_picture {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 209px;
+    height: 209px;
+}
+
+.user_picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user_picture_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.user_picture_overlay:hover {
+    opacity: 1;
+}
+
+.user_picture_overlay_text {
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.user_picture:hover .user_picture_overlay {
+    display: flex;
+}
+
+.user_top_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.user_data {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.user_data_fields {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
+    padding-right: 1em;
+}
+
+.user_data_wrappers {
+    display: flex;
+    flex-direction: row;
+}
+
+.user_data_text {
+    color: var(--blue-100);
+    margin-bottom: 10px;
+}
+
+.user_data_input {
+    border: none;
+    border-bottom: 1px solid var(--blue-100);
+    outline: none;
+    background-color: transparent;
+    color: var(--white);
+    padding-left: 5px;
+    height: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.user_buttons {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.user_data_buttons {
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    background-color: var(--blue-150);
+    color: var(--white);
+    cursor: pointer;
 }
 
 #header {
@@ -137,7 +274,7 @@ body {
     border: none;
     outline: none;
     background-color: var(--grey-50);
-    color: var(--grey-100);
+    color: var(--white);
     font-size: 20px;
     height: 35px;
     width: 500px;
@@ -155,6 +292,7 @@ body {
 
 #header_searchbar:focus {
     background-color: var(--blue-100);
+    color: var(--grey-100);
 }
 
 #header_searchbar::-webkit-search-cancel-button {
@@ -165,10 +303,15 @@ body {
     color: var(--grey-100)
 }
 
+#header_logout_button {
+    padding-right: 10px;
+}
+
 #header_icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 #header_user {
