@@ -20,11 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (!isset($username_error) && !isset($password_error)) {
-            //setcookie("username", $username, time() + 3600, "/");
-            //setcookie("role", $row["Role"], time() + 3600, "/");
             session_start();
             $_SESSION['userID'] = $row["User_ID"];
             $_SESSION['role'] = $row["Role"];
+            $_SESSION['customerID'] = $row['Customer_ID'];
             echo "<p>Anmeldung war erfolgreich!</p>";
             mysqli_close($conn);
         } else {

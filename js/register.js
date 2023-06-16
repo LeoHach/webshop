@@ -11,7 +11,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            type: "POST",
+            method: "POST",
             url: "../php/register.php",
             data: $(this).serialize(),
             success: function (response) {

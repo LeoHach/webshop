@@ -59,3 +59,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>Alle Felder müssen gefüllt sein!</p>";
     }
 }
+mysqli_close($conn);

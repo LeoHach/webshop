@@ -8,7 +8,7 @@ $(document).ready(function () {
             return false;
         }
         $.ajax({
-            type: "POST",
+            method: "POST",
             url: "../php/authenticate.php",
             data: $(this).serialize(),
             success: function (response) {
