@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body id="admin_body" class="smaller_bg">
+<body id="admin_body" class="background">
     <?php include '../components/header.php'; ?>
     <div class="container">
         <div class="middle_square">

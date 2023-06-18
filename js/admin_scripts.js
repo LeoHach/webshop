@@ -1,25 +1,29 @@
 $(document).ready(function () {
+    // Generiert die Daten für die 7 Tage Umsatz Statistik wenn die Seite geladen ist
     $.ajax({
-        url: '../php/money_chart_data.php',
+        url: '../php/admin/charts/money_chart_data.php',
         dataType: 'json',
         success: function (data) {
             drawMoneyChart(data);
         }
     });
 
+    // Generiert die Daten für die 7 Tage verkaufte Produkte Statistik wenn die Seite geladen ist
     $.ajax({
-        url: '../php/sold_items_chart_data.php',
+        url: '../php/admin/charts/sold_items_chart_data.php',
         dataType: 'json',
         success: function (data) {
             drawItemsChart(data);
         }
     });
 
+    // Funktion die die 7 Tage Umsatz Statistik generiert
     function drawMoneyChart(data) {
         var canvas = document.getElementById('money_sum_chart');
         canvas.width = 400;
         canvas.height = 400;
 
+        // Es wird ein neues BarChart initialisiert
         var chart = new BarChart({
             canvas: canvas,
             padding: 20,
@@ -31,11 +35,13 @@ $(document).ready(function () {
         chart.draw();
     }
 
+    // Funktion die die 7 Tage Umsatz Statistik generiert
     function drawItemsChart(data) {
         var canvas = document.getElementById('stock_sum_chart');
         canvas.width = 400;
         canvas.height = 400;
 
+        // Es wird ein neues BarChart initialisiert
         var chart = new BarChart({
             canvas: canvas,
             padding: 20,
@@ -47,6 +53,7 @@ $(document).ready(function () {
         chart.draw();
     }
 
+    // Hilfsfunktion um die Linien in der Statistik zu zeichnen
     function drawLine(ctx, startX, startY, endX, endY, color) {
         ctx.save();
         ctx.strokeStyle = color;
@@ -57,6 +64,7 @@ $(document).ready(function () {
         ctx.restore();
     }
 
+    // Hilfsfunktion um die Balken in der Statistik zu zeichnen
     function drawBar(ctx, leftCUpX, leftCUpY, width, height, color) {
         ctx.save();
         ctx.fillStyle = color;
@@ -64,6 +72,7 @@ $(document).ready(function () {
         ctx.restore();
     }
 
+    // Definiert ein BarChart 
     class BarChart {
         constructor(options) {
             this.options = options;
@@ -149,9 +158,8 @@ $(document).ready(function () {
         if (products_open == false && product_add_open == false) {
             products_open = true;
             $(this).toggleClass('rotate');
-            $('#admin_body').removeClass('smaller_bg').addClass('bigger_bg');
             $.ajax({
-                url: '../php/admin_show_products.php',
+                url: '../php/admin/products/admin_show_products.php',
                 method: 'GET',
                 success: function (response) {
                     $('#admin_products').html(response);
@@ -170,21 +178,19 @@ $(document).ready(function () {
         if (products_open == false && product_add_open == false) {
             product_add_open = true;
             $('#show_products_button').toggleClass('rotate');
-            $('#admin_body').removeClass('smaller_bg').addClass('bigger_bg');
             $.ajax({
-                url: '../php/admin_show_product_add.php',
+                url: '../php/admin/products/admin_show_product_add.php',
                 method: 'GET',
                 success: function (response) {
                     $('#admin_products').html(response);
                 }
             });
         } else if (products_open == true) {
-            $('#admin_body').removeClass('smaller_bg').addClass('bigger_bg');
             $('#admin_products').html('');
             products_open = false;
             product_add_open = true;
             $.ajax({
-                url: '../php/admin_show_product_add.php',
+                url: '../php/admin/products/admin_show_product_add.php',
                 method: 'GET',
                 success: function (response) {
                     $('#admin_products').html(response);
@@ -197,7 +203,7 @@ $(document).ready(function () {
         var itemID = $(this).data('id');
         var itemToDelete = $(this).closest('.admin_product_item');
         $.ajax({
-            url: '../php/admin_delete_item.php',
+            url: '../php/admin/products/admin_delete_item.php',
             method: 'POST',
             data: { id: itemID },
             success: function (response) {
@@ -213,7 +219,6 @@ $(document).ready(function () {
     $('#admin_add_item_cancel').click(function () {
         product_add_open = false;
         $('#show_products_button').toggleClass('rotate');
-        $('#admin_body').removeClass('bigger_bg').addClass('smaller_bg');
         $('#admin_products').html('');
     });
 
@@ -225,27 +230,25 @@ $(document).ready(function () {
         if (itemId.trim() === '') {
             $.ajax({
                 method: 'POST',
-                url: '../php/admin_add_product.php',
+                url: '../php/admin/products/admin_add_product.php',
                 data: formData,
                 contentType: false,
                 processData: false,
                 success: function () {
                     product_add_open = false;
-                    $('#admin_body').removeClass('bigger_bg').addClass('smaller_bg');
                     $('#admin_products').html('');
                 }
             });
         } else {
             $.ajax({
                 method: 'POST',
-                url: '../php/admin_update_product.php',
+                url: '../php/admin/products/admin_update_product.php',
                 data: formData,
                 contentType: false,
                 processData: false,
                 success: function (response) {
                     console.log(response);
                     product_add_open = false;
-                    $('#admin_body').removeClass('bigger_bg').addClass('smaller_bg');
                     $('#admin_products').html('');
                 }
             });
@@ -266,7 +269,7 @@ $(document).ready(function () {
         $('#admin_products').html('');
         $('#admin_body').toggleClass('bigger_bg');
         $.ajax({
-            url: '../php/admin_show_product_add.php',
+            url: '../php/admin/products/admin_show_product_add.php',
             method: 'GET',
             success: function (response) {
                 product_add_open = true;
@@ -287,10 +290,9 @@ $(document).ready(function () {
     $('#admin_show_users_button').click(function () {
         if (users_open == false && users_add_open == false) {
             users_open = true;
-            $('#admin_body').removeClass('smaller_bg').addClass('bigger_bg');
             $(this).toggleClass('rotate');
             $.ajax({
-                url: '../php/admin_show_users.php',
+                url: '../php/admin/users/admin_show_users.php',
                 method: 'GET',
                 success: function (response) {
                     $('#admin_users').html(response);
@@ -300,7 +302,6 @@ $(document).ready(function () {
             users_open = false;
             users_add_open = false;
             $(this).toggleClass('rotate');
-            $('#admin_body').removeClass('bigger_bg').addClass('smaller_bg');
             $('#admin_users').html('');
         }
     });
@@ -309,9 +310,8 @@ $(document).ready(function () {
         if (users_open == false && users_add_open == false) {
             users_add_open = true;
             $('#admin_show_users_button').toggleClass('rotate');
-            $('#admin_body').removeClass('smaller_bg').addClass('bigger_bg');
             $.ajax({
-                url: '../php/admin_show_users_add.php',
+                url: '../php/admin/users/admin_show_users_add.php',
                 method: 'GET',
                 success: function (response) {
                     $('#admin_users').html(response);
@@ -321,9 +321,8 @@ $(document).ready(function () {
             $('#admin_users').html('');
             users_open = false;
             users_add_open = true;
-            $('#admin_body').removeClass('smaller_bg').addClass('bigger_bg');
             $.ajax({
-                url: '../php/admin_show_users_add.php',
+                url: '../php/admin/users/admin_show_users_add.php',
                 method: 'GET',
                 success: function (response) {
                     $('#admin_users').html(response);
@@ -336,7 +335,7 @@ $(document).ready(function () {
         var itemID = $(this).data('id');
         var itemToDelete = $(this).closest('.admin_product_item');
         $.ajax({
-            url: '../php/admin_delete_user.php',
+            url: '../php/admin/users/admin_delete_user.php',
             method: 'POST',
             data: { id: itemID },
             success: function (response) {
@@ -352,7 +351,6 @@ $(document).ready(function () {
     $('#admin_add_user_cancel').click(function () {
         users_add_open = false;
         $('#admin_show_users_button').toggleClass('rotate');
-        $('#admin_body').removeClass('bigger_bg').addClass('smaller_bg');
         $('#admin_users').html('');
     });
 
@@ -360,11 +358,10 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             method: 'POST',
-            url: '../php/admin_add_user.php',
+            url: '../php/admin/users/admin_add_user.php',
             data: $(this).serialize(),
             success: function () {
                 users_add_open = false;
-                $('#admin_body').removeClass('bigger_bg').addClass('smaller_bg');
                 $('#admin_users').html('');
             }
         });

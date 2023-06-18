@@ -62,38 +62,38 @@
     <div id="header_search_result">
     </div>
     <form id="login_form" action="" method="post">
-        <h2 class="dropdown_text" id="login_header">Anmelden</h2>
-        <label for="username_email" class="dropdown_text">E-Mail / Benutzername:</label>
-        <input type="text" class="dropdown_input" id="login_username_email" name="username_email" required />
-        <div id="login_username_email_error" class="response_text"></div>
+        <h2 class="dropdown_text">Anmelden</h2>
+        <label for="username_email" class="dropdown_text">Benutzername:</label>
+        <input type="text" class="dropdown_input login_username_email" name="username_email" required />
+        <div class="response_text login_username_email_error"></div>
         <label for="password" class="dropdown_text">Passwort:</label>
-        <input type="password" class="dropdown_input" id="login_password" name="password" required />
-        <div id="login_password_error" class="response_text"></div>
-        <div id="login_buttons">
-            <button class="dropdown_buttons" id="login_register">Registrieren</button>
-            <input type="submit" class="dropdown_buttons" id="login_login" value="Anmelden" />
+        <input type="password" class="dropdown_input login_password" name="password" required />
+        <div class="response_text login_password_error"></div>
+        <div class="form_buttons">
+            <button class="dropdown_buttons login_register">Registrieren</button>
+            <input type="submit" class="dropdown_buttons login_login" value="Anmelden" />
         </div>
-        <div id="login_result" class="response_text"></div>
+        <div class="response_text login_result"></div>
     </form>
     <form id="register_form" action="" method="post">
-        <h2 class="dropdown_text" id="login_header">Registrieren</h2>
+        <h2 class="dropdown_text">Registrieren</h2>
         <label for="username" class="dropdown_text">Benutzername:</label>
-        <input type="text" class="dropdown_input" id="register_username" name="username" required />
-        <div id="register_username_error" class="response_text"></div>
+        <input type="text" class="dropdown_input register_username" name="username" required />
+        <div class="response_text register_username_error"></div>
         <label for="email" class="dropdown_text">E-Mail:</label>
-        <input type="email" class="dropdown_input" id="register_email" name="email" required />
-        <div id="register_email_error" class="response_text"></div>
+        <input type="email" class="dropdown_input register_email" name="email" required />
+        <div class="response_text register_email_error"></div>
         <label for="password" class="dropdown_text">Passwort:</label>
-        <input type="password" class="dropdown_input" id="register_password" name="password" required />
-        <div id="register_password_error" class="response_text"></div>
+        <input type="password" class="dropdown_input register_password" name="password" required />
+        <div class="response_text register_password_error"></div>
         <label for="password_repeat" class="dropdown_text">Passwort wiederholen:</label>
-        <input type="password" class="dropdown_input" id="register_password_repeat" name="password_repeat" required />
-        <div id="register_password_repeat_error" class="response_text"></div>
-        <div id="register_buttons">
-            <button class="dropdown_buttons" id="register_login">Anmelden</button>
-            <input type="submit" class="dropdown_buttons" id="register_register" value="Registrieren" />
+        <input type="password" class="dropdown_input register_password_repeat" name="password_repeat" required />
+        <div class="response_text register_password_repeat_error"></div>
+        <div class="form_buttons">
+            <button class="dropdown_buttons register_login">Anmelden</button>
+            <input type="submit" class="dropdown_buttons register_register" value="Registrieren" />
         </div>
-        <div id="register_result" class="response_text"></div>
+        <div class="response_text register_result"></div>
     </form>
     <div class="header_shopping_cart" id="header_shopping_cart">
         <div class="cart_wrapper">
@@ -139,6 +139,44 @@
                         </svg>
                     </div>
                     <hr class="header_mobile_menu_line">
+                    <form id="mobile_login_form" action="" method="post">
+                            <h1 class="dropdown_text">Anmelden</h1>
+                            <label for="username_email" class="dropdown_text dropdown_mobile_text">E-Mail / Benutzername:</label>
+                            <input type="text" class="dropdown_input login_username_email" name="username_email" required />
+                            <div class="response_text login_username_email_error"></div>
+                            <label for="password" class="dropdown_text dropdown_mobile_text">Passwort:</label>
+                            <input type="password" class="dropdown_input login_password" name="password" required />
+                            <div class="response_text login_password_error"></div>
+                            <div class="login_buttons">
+                                <button class="dropdown_buttons login_register">Registrieren</button>
+                                <input type="submit" class="dropdown_buttons login_login" value="Anmelden" />
+                            </div>
+                            <div class="response_text login_result"></div>
+                            <hr class="header_mobile_menu_line">
+                        </form>
+
+                        <form id="mobile_register_form" action="" method="post">
+                            <h1 class="dropdown_text">Registrieren</h1>
+                            <label for="username" class="dropdown_text dropdown_mobile_text">Benutzername:</label>
+                            <input type="text" class="dropdown_input register_username" name="username" required />
+                            <div class="response_text register_username_error"></div>
+                            <label for="email" class="dropdown_text dropdown_mobile_text">E-Mail:</label>
+                            <input type="email" class="dropdown_input register_email" name="email" required />
+                            <div class="response_text register_email_error"></div>
+                            <label for="password" class="dropdown_text dropdown_mobile_text">Passwort:</label>
+                            <input type="password" class="dropdown_input register_password" name="password" required />
+                            <div class="response_text register_password_error"></div>
+                            <label for="password_repeat" class="dropdown_text dropdown_mobile_text">Passwort wiederholen:</label>
+                            <input type="password" class="dropdown_input register_password_repeat" name="password_repeat" required />
+                            <div class="response_text register_password_repeat_error"></div>
+                            <div class="form_buttons">
+                                <button class="dropdown_buttons register_login">Anmelden</button>
+                                <input type="submit" class="dropdown_buttons register_register" value="Registrieren" />
+                            </div>
+                            <div class="response_text register_result"></div>
+                            <hr class="header_mobile_menu_line">
+                        </form>
+                        
                     ';
             }
             ?>
@@ -153,7 +191,19 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
             </div>
-            <div id="mobile_cart">
+            <div class="mobile_cart_wrapper">
+                <hr class="header_mobile_menu_line">
+                <div id="mobile_cart">
+                </div>
+                <hr class="cart_line">
+                <div class="cart_total_sum">
+                    <span class="cart_sum_text">Summe:</span>
+                    <span class="cart_price_text" id="mobile_cart_price_text">0.00€</span>
+                </div>
+                <div class="cart_buttons">
+                    <button class="cart_button dropdown_buttons" id="mobile_cart_button_empty">Leeren</button>
+                    <a href="../pages/checkout.php"><button class="cart_button dropdown_buttons" id="mobile_cart_button_buy">Kaufen</button></a>
+                </div>
             </div>
             <hr class="header_mobile_menu_line">
             <?php

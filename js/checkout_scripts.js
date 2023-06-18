@@ -1,13 +1,13 @@
 $(document).ready(function () {
     $.ajax({
-        url: '../php/add_to_checkout.php',
+        url: '../php/checkout/generate_checkout_cart.php',
         method: 'GET',
         success: function (response) {
             $('#checkout_cart').html(response);
         }
     });
     $.ajax({
-        url: '../php/get_sum.php',
+        url: '../php/cart/get_sum.php',
         method: 'GET',
         success: function (response) {
             $('#checkout_sum').text(response + '€');
@@ -15,7 +15,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: '../php/get_credentials.php',
+        url: '../php/user/get_credentials.php',
         method: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -33,7 +33,7 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "../php/checkout_buy.php",
+            url: "../php/checkout/checkout_buy.php",
             data: $(this).serialize(),
             success: function (response) {
                 console.log(response);
