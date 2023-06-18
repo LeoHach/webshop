@@ -58,14 +58,6 @@ body {
     justify-content: center;
 }
 
-.big_height {
-    height: 100%;
-}
-
-.small_height {
-    height: 100vh;
-}
-
 .dropdown_text {
     color: var(--white);
     margin-left: 10px;

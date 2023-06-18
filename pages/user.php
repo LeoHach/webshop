@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body id="user_body" class="small_height">
+<body>
     <?php include '../components/header.php'; ?>
     <div class="container">
         <div class="middle_square">
