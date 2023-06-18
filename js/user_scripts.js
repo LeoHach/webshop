@@ -98,10 +98,4 @@ $(document).ready(function () {
             $('#user_comments').html('');
         }
     });
-
-    if (products_open == false && comments_open == false) {
-        $('body').toggleClass('small_height');
-    } else if ((products_open && !comments_open) || (!products_open && comments_open)) {
-        $('body').toggleClass('big_height');
-    }
 });
