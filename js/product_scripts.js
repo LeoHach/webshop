@@ -30,7 +30,7 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "../php/post_review.php",
+            url: "../php/products/post_review.php",
             data: $(this).serialize(),
             success: function () {
                 location.reload();
@@ -45,7 +45,7 @@ $(document).ready(function () {
         var itemBrand = $(this).data('brand');
         var itemPicture = $(this).data('picture');
         $.ajax({
-            url: '../php/add_to_cart.php',
+            url: '../php/cart/add_to_cart.php',
             method: 'POST',
             data: { id: itemID, price: itemPrice, name: itemName, brand: itemBrand, picture: itemPicture },
             success: function (response) {
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     function updateSum() {
         $.ajax({
-            url: '../php/get_sum.php',
+            url: '../php/cart/get_sum.php',
             method: 'GET',
             success: function (response) {
                 $('#cart_price_text').text(response + '€');

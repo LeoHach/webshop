@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url: '../php/get_credentials.php',
+        url: '../php/user/get_credentials.php',
         method: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -15,7 +15,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: '../php/get_user_data.php',
+        url: '../php/user/get_user_data.php',
         method: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -48,7 +48,7 @@ $(document).ready(function () {
         var formData = new FormData(this);
         $.ajax({
             method: "POST",
-            url: "../php/user_change_data.php",
+            url: "../php/users/user_change_data.php",
             data: formData,
             contentType: false,
             processData: false,
@@ -66,9 +66,8 @@ $(document).ready(function () {
         if (products_open == false) {
             products_open = true;
             $(this).toggleClass('rotate');
-            $('#user_body').removeClass('smaller_bg').addClass('bigger_bg');
             $.ajax({
-                url: '../php/user_show_products.php',
+                url: '../php/user/user_show_products.php',
                 method: 'GET',
                 success: function (response) {
                     $('#user_bought_items').html(response);
@@ -76,7 +75,6 @@ $(document).ready(function () {
             });
         } else {
             products_open = false;
-            $('#user_body').removeClass('bigger_bg').addClass('smaller_bg');
             $(this).toggleClass('rotate');
             $('#user_bought_items').html('');
         }
@@ -87,9 +85,8 @@ $(document).ready(function () {
         if (comments_open == false) {
             comments_open = true;
             $(this).toggleClass('rotate');
-            $('#user_body').removeClass('smaller_bg').addClass('bigger_bg');
             $.ajax({
-                url: '../php/user_show_comments.php',
+                url: '../php/user/user_show_comments.php',
                 method: 'GET',
                 success: function (response) {
                     $('#user_comments').html(response);
@@ -97,9 +94,14 @@ $(document).ready(function () {
             });
         } else {
             comments_open = false;
-            $('#user_body').removeClass('bigger_bg').addClass('smaller_bg');
             $(this).toggleClass('rotate');
             $('#user_comments').html('');
         }
     });
+
+    if (products_open == false && comments_open == false) {
+        $('body').toggleClass('small_height');
+    } else if ((products_open && !comments_open) || (!products_open && comments_open)) {
+        $('body').toggleClass('big_height');
+    }
 });

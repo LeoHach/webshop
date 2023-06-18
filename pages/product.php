@@ -18,25 +18,27 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body>
+<body class="background">
     <?php include '../components/header.php'; ?>
-    <?php require('../php/get_product_details.php'); ?>
+    <?php require('../php/products/get_product_details.php'); ?>
     <div class="container">
         <div class="middle_square">
             <div class="single_product_wrapper" id="single_product_wrapper">
                 <div class="single_product_top_row">
-                    <img src="<?php echo $productPicture; ?>" id="single_product_picture">
+                    <div class="single_product_picture_container">
+                        <img src="<?php echo $productPicture; ?>" id="single_product_picture">
+                    </div>
                     <div class="single_product_col">
-                        <div class="single_product_row">
-                            <div class="single_product_col">
+                        <div class="single_product_row_details">
+                            <div class="single_product_col detail_col">
                                 <span class="single_product_big_text"><?php echo $productName; ?></span>
                                 <span class="single_product_text"><?php echo $productBrand; ?></span>
                             </div>
-                            <div class="single_product_col">
+                            <div class="single_product_col detail_col price_stock_col">
                                 <span class="single_product_big_text"><?php echo $productPrice; ?>€</span>
                                 <span class="single_product_text">Auf Lager: <?php echo $productStock; ?></span>
                             </div>
-                            <button class="single_product_button" id="single_product_add_to_cart" data-id="<?php echo $productID; ?>" data-price="<?php echo $productPrice; ?>" data-name="<?php echo $productName; ?>" data-brand="<?php echo $productBrand; ?>" data-picture="<?php echo $productPicture; ?>">
+                            <button class="single_product_button detail_col" id="single_product_add_to_cart" data-id="<?php echo $productID; ?>" data-price="<?php echo $productPrice; ?>" data-name="<?php echo $productName; ?>" data-brand="<?php echo $productBrand; ?>" data-picture="<?php echo $productPicture; ?>">
                                 <span class="material-symbols-outlined">add_shopping_cart</span>
                             </button>
                         </div>
@@ -44,7 +46,7 @@ session_start();
                     </div>
                 </div>
                 <div class="single_product_rating_row">
-                    <span class="single_product_big_text"><?php echo $productNoRating; ?> Bewertungen</span>
+                    <span class="single_product_big_text rating_text"><?php echo $productNoRating; ?> Bewertungen</span>
                     <div class="single_product_stars">
                         <?php echo $stars; ?>
                     </div>
@@ -56,11 +58,11 @@ session_start();
                         <input value="<?php echo $productID; ?>" class="single_product_id" name="single_product_id" style="display: none">
                         <input id="single_product_comment_field" type="text" placeholder="Bewertung verfassen..." name="single_product_comment_field">
                         <div class="single_product_rating_stars">
-                            <i class="material-symbols-outlined md-48 star_empty_rating rating_stars" data-value="1">star</i>
-                            <i class="material-symbols-outlined md-48 star_empty_rating rating_stars" data-value="2">star</i>
-                            <i class="material-symbols-outlined md-48 star_empty_rating rating_stars" data-value="3">star</i>
-                            <i class="material-symbols-outlined md-48 star_empty_rating rating_stars" data-value="4">star</i>
-                            <i class="material-symbols-outlined md-48 star_empty_rating rating_stars" data-value="5">star</i>
+                            <i class="material-symbols-outlined md-48 white_stars star_empty_rating rating_stars" data-value="1">star</i>
+                            <i class="material-symbols-outlined md-48 white_stars star_empty_rating rating_stars" data-value="2">star</i>
+                            <i class="material-symbols-outlined md-48 white_stars star_empty_rating rating_stars" data-value="3">star</i>
+                            <i class="material-symbols-outlined md-48 white_stars star_empty_rating rating_stars" data-value="4">star</i>
+                            <i class="material-symbols-outlined md-48 white_stars star_empty_rating rating_stars" data-value="5">star</i>
                         </div>
                         <input type="hidden" id="single_product_comment_rating" name="single_product_comment_rating">
                         <button type="submit" id="single_product_comment_submit" name="single_product_comment_submit">
